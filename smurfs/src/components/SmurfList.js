@@ -21,10 +21,13 @@ const SmurfList = props => {
   //actual view render
   return (
     <>
+    <h1>Louis' Smurf Village</h1>
       {props.error && <p>{props.error}</p>}
+    <div className="smurf-container">
       {props.smurfList.map(smurf => (
           <Smurf key={smurf.id} smurf={smurf} />
       ))}
+    </div>
     </>
   )
 
