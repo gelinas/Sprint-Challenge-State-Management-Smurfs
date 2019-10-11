@@ -27,6 +27,25 @@ export const smurfReducer = (state = initialState, action) => {
                 isFetching: false,
                 error: action.payload
             }
+        case a.START_POSTING:
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        case a.POST_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                error: '',
+                smurfList: action.payload
+            }
+        case a.POST_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
         default:
             return state;
     }
