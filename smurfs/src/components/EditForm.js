@@ -20,7 +20,7 @@ const EditForm = props => {
 
   //actual view render
   return (
-    <div className="form-fields">
+    <div className="edit-fields">
     <input
       className="form-input"
       type="text"

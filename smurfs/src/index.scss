@@ -54,27 +54,6 @@ i {
   font-size: 12px;
 }
 
-input {
-  padding: 6px;
-  background: none;
-  border: none;
-  color: white;
-  border-bottom: 1px solid white;
-  margin: 8px;
-}
-
-input::placeholder {
-  color: #4147ad;
-}
-
-.form-input {
-  font-size: 24px;
-}
-
-input:focus {
-  outline: none;
-}
-
 h1 {
   margin: 0;
 }
@@ -132,6 +111,27 @@ h4 {
 
     .form-fields {
       @include flex-style(column, nowrap, space-between, center);
+      
+      input {
+        padding: 6px;
+        background: none;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+        margin: 8px;
+      }
+
+      input::placeholder {
+        color: #4147ad;
+      }
+
+      .form-input {
+        font-size: 24px;
+      }
+
+      input:focus {
+        outline: none;
+      }
     }
   }
 
@@ -145,7 +145,7 @@ h4 {
   
     .smurf-card {
       position: relative;
-      width: 300px;
+      width: 200px;
       margin:1%;
       background: white;
       border-radius: 10px;
@@ -159,34 +159,35 @@ h4 {
       }
       
       .smurf-data {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-      
-        top: 65%;
-        width: 100%;
-      
-        
-        
-      
-        h1 {
-          color: $brand-aqua;
-          font-size: 2rem;
-        }
-      
+        font-size: 16px;
         p {
-          color: $brand-aqua;
-          font-size: 1.5rem;
-          padding-right:3%;
-          
+          margin: 16px auto;
         }
-      
-        a {
-          color: blue;
-      
-      
-          
+      }
+
+      .edit-fields {
+        @include flex-style(column, nowrap, space-between, center);
+        
+        input {
+          padding: 1px;
+          background: none;
+          border: solid 1px black;
+          color: black;
+          border-bottom: 1px solid black;
+          margin: 8px auto;
+          text-align: center;
+        }
+  
+        input::placeholder {
+          color: #4147ad;
+        }
+  
+        .form-input {
+          font-size: 16px;
+        }
+  
+        input:focus {
+          outline: none;
         }
       }
     }

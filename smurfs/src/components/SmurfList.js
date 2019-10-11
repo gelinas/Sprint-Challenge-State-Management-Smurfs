@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import  { fetchSmurf } from '../actions'
 
-import Smurf from './Smurf';
+import SmurfCard from './SmurfCard';
 
 // import Smurf from './Smurf';
 
@@ -25,7 +25,7 @@ const SmurfList = props => {
       {props.error && <p>{props.error}</p>}
     <div className="smurf-container">
       {props.smurfList.map(smurf => (
-          <Smurf key={smurf.id} smurf={smurf} />
+          <SmurfCard key={smurf.id} smurf={smurf} />
       ))}
     </div>
     </>
