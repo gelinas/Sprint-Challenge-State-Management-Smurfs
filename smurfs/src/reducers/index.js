@@ -4,10 +4,12 @@
 import { combineReducers } from 'redux';
 
 import { smurfReducer as smurf } from './smurfReducer';
+import { editReducer as edit } from './editReducer';
 
 // export const reducer = combineReducers({})
 
 export default combineReducers({
-  smurf
+  smurf,
+  edit
   // otherReducers
 });

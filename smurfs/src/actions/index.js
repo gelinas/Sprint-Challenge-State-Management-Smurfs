@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// beer action types
+// smurf action types
 export const START_FETCH = 'START_FETCH';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
@@ -17,7 +17,7 @@ export const START_DELETE = 'START_DELETE';
 export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 export const DELETE_FAILURE = 'DELETE_FAILURE';
 
-// beer action creatoros
+// smurf action creatoros
 // standard form for asyc axios call with thunk
 // thunk lets us return functions as actions well as regular objects
 export const fetchSmurf = () => dispatch => {
@@ -54,4 +54,14 @@ export const deleteSmurf = (editSmurf) => dispatch => {
         .then(res=> dispatch({ type: DELETE_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_FAILURE, payload: err.response }));
 
+};
+
+// edit form action types
+export const TOGGLE_EDIT = 'TOGGLE_EDIT';
+export const SET_SMURF = 'SET_SMURF';
+
+// edit form action creators
+export const toggleEdit = () => ({ type: TOGGLE_EDIT });
+export const setSmurf = editSmurf => {
+  return { type: SET_SMURF, payload: editSmurf };
 };
