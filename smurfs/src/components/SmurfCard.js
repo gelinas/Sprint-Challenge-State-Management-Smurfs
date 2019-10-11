@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { toggleEdit, setSmurf } from '../actions';
@@ -8,10 +8,19 @@ import EditForm from './EditForm';
 
 const SmurfCard = props => {
   console.log("props from smurfCard", props)
+
+  const [isEditing, setIsEditing] = useState(false);
+
+  const toggleEditing = () => {
+    setIsEditing(!isEditing);
+  }
+
   return (
     <div className="smurf-card">
-      <Smurf smurf={props.smurf} />
-      <EditForm smurf={props.smurf} />
+      {isEditing 
+      ? <EditForm smurf={props.smurf} /> 
+      : <Smurf smurf={props.smurf} toggleEditing={toggleEditing} />
+      }
     </div>
   )
 };
