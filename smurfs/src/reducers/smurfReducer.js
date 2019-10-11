@@ -8,7 +8,8 @@ const initialState = {
 
 export const smurfReducer = (state = initialState, action) => {
     switch(action.type){
-        case a.START_FETCHING:
+        // GET requests
+        case a.START_FETCH:
             return {
                 ...state,
                 isFetching: true,
@@ -27,7 +28,8 @@ export const smurfReducer = (state = initialState, action) => {
                 isFetching: false,
                 error: action.payload
             }
-        case a.START_POSTING:
+        // POST requests
+        case a.START_POST:
             return {
                 ...state,
                 isFetching: true,
@@ -41,6 +43,46 @@ export const smurfReducer = (state = initialState, action) => {
                 smurfList: action.payload
             }
         case a.POST_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        // PUT requests
+        case a.START_PUT:
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        case a.PUT_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                error: '',
+                smurfList: action.payload
+            }
+        case a.PUT_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        // DELETE requests
+        case a.START_DELETE:
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        case a.DELETE_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                error: '',
+                smurfList: action.payload
+            }
+        case a.DELETE_FAILURE:
             return {
                 ...state,
                 isFetching: false,
