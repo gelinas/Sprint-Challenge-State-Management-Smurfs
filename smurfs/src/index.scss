@@ -1,0 +1,196 @@
+
+
+// -- Variables
+
+$light-cream: #FFFEFA;  // text on dark background
+$off-black: #2E2F38; // text on light background
+
+$brand-aqua: #124950; // navbar and foot background color
+$primary-aqua: #6CCAC6; // active buttons
+$inactive-aqua: #092C39; // inactive buttons
+$warning-yellow: #B29205; // warning buttons
+$delete-red: #931210; // delete buttons
+$secondary-beige: #B59883; // secondary buttons
+$input-field: #EFEFEF; // off-color for form fields
+$field-border: #757065; // dark color for form field border
+$star-yellow: #FCC400; // bright yellow for saved items
+
+$font-header: 'Lato', sans-serif;
+$font-content: 'Merriweather', serif;
+
+$text-black: $off-black;
+$text-white: $light-cream;
+$nav-border: $inactive-aqua;
+
+$responsive-phone: "only screen and (max-width : 480px)";
+
+/* mix-ins */ 
+
+@mixin flex-style($direction, $wrap, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-image: linear-gradient(#5fe9d7, #83a1e3);
+  color: black;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 36px;
+}
+
+i {
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0;
+}
+
+
+.friends-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 36px;
+}
+
+h4 {
+  margin: 4px 0;
+  border-bottom: 1px solid white;
+  padding: 6px;
+  position: relative;
+  width: 180px;
+  display: flex;
+  cursor: pointer;
+}
+
+.fa-dragon {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+
+/* smurf container */
+.container {
+  width: 100%;
+  margin: 3% 0;
+  @include flex-style(column, nowrap, space-around, center);
+  
+  .form-container {
+    width:  96%;
+    margin: auto;
+    // border: 1px solid green;
+
+    .form-fields {
+      @include flex-style(column, nowrap, space-between, center);
+      
+      input {
+        padding: 6px;
+        background: none;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+        margin: 8px;
+      }
+
+      input::placeholder {
+        color: #4147ad;
+      }
+
+      .form-input {
+        font-size: 24px;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      button {
+        padding: 6px 8px;
+        font-size: 16px;
+        background: none;
+        color: white;
+        border: 1px solid white;
+        border-radius: 4px;
+      }
+
+      button:hover {
+        background-color: #ffffff22;
+      }
+
+      button:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .smurf-container {
+    // background-color: $brand-aqua;
+    @include flex-style(row, wrap, space-around, center);
+  
+    // border: 1px solid red;
+    width: 100%;
+    max-width: 800px;
+  
+    .smurf-card {
+      position: relative;
+      width: 200px;
+      margin:1%;
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      -webkit-filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
+      // border: 1px solid dodgerblue;
+    
+      .smurf-pic {
+        border-radius: 10px;
+      }
+      
+      .smurf-data {
+        font-size: 16px;
+        p {
+          margin: 16px auto;
+        }
+      }
+
+      .edit-fields {
+        @include flex-style(column, nowrap, space-between, center);
+        
+        input {
+          padding: 1px;
+          background: none;
+          border: solid 1px black;
+          color: black;
+          border-bottom: 1px solid black;
+          margin: 8px auto;
+          text-align: center;
+        }
+  
+        input::placeholder {
+          color: #4147ad;
+        }
+  
+        .form-input {
+          font-size: 16px;
+        }
+  
+        input:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

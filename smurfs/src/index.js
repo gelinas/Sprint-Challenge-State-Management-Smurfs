@@ -1,6 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+
+import rootReducer from './reducers';
+ 
 import App from "./components/App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import "./index.scss";
+
+// redux devtools integration
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// create store
+const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk, logger))
+);
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    rootElement);
